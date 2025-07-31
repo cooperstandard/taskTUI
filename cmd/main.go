@@ -14,6 +14,7 @@ type Task struct {
 	title       string
 	description string
 	project     uuid.UUID
+	status      string
 	createdAt   time.Time
 	completedAt time.Time
 }
@@ -26,7 +27,8 @@ type Project struct {
 type model struct {
 	tasks    []Task
 	projects []Project
-	cursor   int // which task index is currently selected
+	cursor   int // which task index is currently selected in the current view. When the view changes: reset to 0
+	// TODO: should be some type of linked list or id for quick lookup
 }
 
 func initialModel() model {
