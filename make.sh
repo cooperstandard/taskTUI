@@ -1,7 +1,9 @@
 #! /bin/bash
 case $1 in 
    "start")
-      go build cmd/main.go
-      ./main
+      go run cmd/main.go
      ;;
+   "format")
+      go fmt ./...
+      ;;
    esac
